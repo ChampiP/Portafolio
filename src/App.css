@@ -79,3 +79,29 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
+/* App.css */
+
+/* Contenedor para los iconos sociales */
+.social-buttons {
+  margin-top: 20px;
+}
+
+.social-icon {
+  margin: 0 15px;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #000000; /* Cambia el color cuando se pase el ratón sobre el ícono */
+}
+
+/* Estilos adicionales para los iconos */
+.social-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.1); /* Añadir un efecto de agrandar los íconos al hacer hover */
+}
