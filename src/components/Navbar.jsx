@@ -1,19 +1,23 @@
 // src/components/Navbar.jsx
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';  // Importando los componentes de react-bootstrap
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import './Navbar.css';
 
 const NavigationBar = () => {
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#">Mi Portafolio</Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbarNav" />
-      <Navbar.Collapse id="navbarNav">
-        <Nav className="mr-auto">
-          <Nav.Link href="#">Inicio</Nav.Link>
-          <Nav.Link href="#">Proyectos</Nav.Link>
-          <Nav.Link href="#">Contacto</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
+    <Navbar expand="lg" bg="light" variant="light" sticky="top">
+      <Container>
+        <Navbar.Brand href="/">Mi Portafolio</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="#about">Sobre mí</Nav.Link>
+            <Nav.Link href="#services">Servicios</Nav.Link>
+            <Nav.Link href="#projects">Proyectos</Nav.Link>
+            <Nav.Link href="#contact">Contacto</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 };

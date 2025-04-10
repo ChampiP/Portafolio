@@ -1,27 +1,21 @@
+// src/components/AboutMe.jsx
 import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
+import logo from '../assets/logo.svg';
 
 const AboutMe = () => {
   return (
     <section id="about" className="py-5">
       <Container>
-        <Row>
-          <Col md={4}>
-            <Image src="ruta/a/tu/foto.jpg" roundedCircle fluid />
+        <Row className="align-items-center">
+          <Col md={4} className="text-center">
+            <Image src={logo} roundedCircle fluid alt="Logo" />
           </Col>
           <Col md={8}>
-            <h2>Sobre mí</h2>
+            <h2>Sobre Mí</h2>
             <p>
-              Soy un desarrollador web con experiencia en React y Bootstrap. Me apasiona crear interfaces de usuario atractivas y funcionales.
+              Hola, soy [Tu Nombre], un desarrollador web apasionado por crear experiencias modernas y responsivas. Me especializo en React y diseño móvil.
             </p>
-            <h3>Habilidades</h3>
-            <ul>
-              <li>React</li>
-              <li>JavaScript</li>
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>Bootstrap</li>
-            </ul>
           </Col>
         </Row>
       </Container>

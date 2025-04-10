@@ -1,7 +1,35 @@
+/* src/App.css */
 .App {
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
 }
 
-.navbar {
+/* Espaciado para secciones */
+section {
+  padding: 80px 0;
+}
+
+/* Estilos para encabezados */
+h1, h2, h3 {
+  font-weight: 700;
   margin-bottom: 20px;
+}
+
+/* Añadimos un pequeño margen inferior a los párrafos */
+p {
+  margin-bottom: 15px;
+}
+
+/* Acentos de color para botones y enlaces */
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
 }
