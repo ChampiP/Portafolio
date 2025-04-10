@@ -1,35 +1,81 @@
 /* src/App.css */
+
+/* Contenedor principal */
 .App {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   background-color: #fff;
 }
 
-/* Espaciado para secciones */
-section {
-  padding: 80px 0;
+/* Animación de fade-in para secciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Estilos para encabezados */
-h1, h2, h3 {
-  font-weight: 700;
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
   margin-bottom: 20px;
 }
 
-/* Añadimos un pequeño margen inferior a los párrafos */
-p {
-  margin-bottom: 15px;
+.hero p {
+  font-size: 1.3rem;
 }
 
-/* Acentos de color para botones y enlaces */
-.btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
+/* Estilo general para secciones */
+section {
+  padding: 80px 0;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Tarjetas de proyectos */
+.project-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h5 {
+  margin-top: 15px;
+}
+
+/* Botones Primarios */
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  border: none;
   transition: background-color 0.3s ease;
 }
 
-.btn-success:hover {
-  background-color: #218838;
-  border-color: #1e7e34;
+.btn-primary:hover {
+  background-color: var(--btn-primary-hover);
+}
+
+/* Footer */
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 20px 0;
+  text-align: center;
 }

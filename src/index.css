@@ -1,26 +1,67 @@
 /* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+/* Variables para el modo claro (predeterminado) */
+:root {
+  --bg-color: #f7f9fc;
+  --text-color: #333;
+  --primary-color: #007bff; /* Azul principal */
+  --secondary-color: #00d4ff; /* Azul claro */
+  --navbar-bg: rgba(255, 255, 255, 0.95); /* Fondo semitransparente */
+  --navbar-text: #333;
+  --btn-primary-bg: #007bff;
+  --btn-primary-hover: #0056b3;
+  --footer-bg: #222;
+  --footer-text: #ccc;
+  --border-radius: 8px; /* Bordes redondeados */
+  --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para los elementos */
+  --transition-time: 0.3s; /* Transición suave para cambios */
+}
+
+/* Variables para el modo oscuro */
+[data-theme="dark"] {
+  --bg-color: #181818; /* Fondo oscuro */
+  --text-color: #000000; /* Texto claro */
+  --primary-color: #bb86fc; /* Color principal violeta suave */
+  --secondary-color: #03dac6; /* Verde vibrante */
+  --navbar-bg: rgba(18, 18, 18, 0.95); /* Fondo navbar oscuro */
+  --navbar-text: #e0e0e0; /* Texto navbar claro */
+  --btn-primary-bg: #bb86fc; /* Botón principal violeta */
+  --btn-primary-hover: #9f6ef0; /* Hover del botón */
+  --footer-bg: #000;
+  --footer-text: #888;
+  --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más fuerte en modo oscuro */
+}
+
+/* Reset y estilos globales */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: all var(--transition-time) ease;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   line-height: 1.6;
+  padding-top: 50px; /* Para no tapar contenido con el navbar */
+  transition: background-color var(--transition-time), color var(--transition-time);
 }
 
-/* Enlaces sin subrayado por defecto */
+/* Enlaces sin subrayado */
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
 }
 
-/* Utilidades */
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Clases utilitarias */
 .text-center {
   text-align: center;
 }
@@ -29,4 +70,133 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--navbar-bg);
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li {
+  font-size: 1.1rem;
+}
+
+nav ul li a {
+  color: var(--navbar-text);
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* Botón principal */
+button {
+  background-color: var(--btn-primary-bg);
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--btn-primary-hover);
+  transform: scale(1.1); /* Efecto de agrandado */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Secciones */
+section {
+  padding: 80px 20px; /* Añadí un padding para separación */
+  text-align: center;
+  margin-top: 50px; /* Espaciado desde el navbar */
+  transition: background-color var(--transition-time);
+}
+
+section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  transition: color var(--transition-time);
+}
+
+section p {
+  font-size: 1.1rem;
+  margin-top: 20px;
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+/* Footer */
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 30px 0;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 30px;
+  box-shadow: var(--box-shadow);
+}
+
+/* Modo oscuro: ajusta la paleta para que el cambio sea suave */
+body[data-theme="dark"] {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body[data-theme="dark"] nav ul li a {
+  color: var(--navbar-text);
+}
+
+body[data-theme="dark"] section h2 {
+  color: var(--primary-color);
+}
+
+body[data-theme="dark"] button {
+  background-color: var(--btn-primary-bg);
+}
+
+body[data-theme="dark"] button:hover {
+  background-color: var(--btn-primary-hover);
+}
+
+body[data-theme="dark"] footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+/* Animaciones de AOS */
+[data-aos="fade-up"] {
+  animation: fadeUp 1s ease-out;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

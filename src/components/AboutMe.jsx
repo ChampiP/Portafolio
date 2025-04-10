@@ -1,4 +1,3 @@
-// src/components/AboutMe.jsx
 import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import logo from '../assets/logo.svg';
@@ -8,14 +7,16 @@ const AboutMe = () => {
     <section id="about" className="py-5">
       <Container>
         <Row className="align-items-center">
-          <Col md={4} className="text-center">
-            <Image src={logo} roundedCircle fluid alt="Logo" />
-          </Col>
-          <Col md={8}>
-            <h2>Sobre Mí</h2>
+          <Col md={6}>
+            <h2>Sobre mí</h2>
             <p>
-              Hola, soy [Tu Nombre], un desarrollador web apasionado por crear experiencias modernas y responsivas. Me especializo en React y diseño móvil.
+              ¡Hola! Soy un desarrollador web apasionado por crear interfaces
+              modernas y responsivas. Me encanta trabajar con React y Bootstrap para
+              construir experiencias digitales únicas.
             </p>
+          </Col>
+          <Col md={6} className="text-center">
+            <Image src={logo} roundedCircle fluid alt="Mi Foto" />
           </Col>
         </Row>
       </Container>

@@ -1,42 +1,28 @@
-// src/components/Services.jsx
+// Ejemplo en Services.jsx
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import { FaCode, FaPaintBrush, FaLaptop } from 'react-icons/fa';
 
 const Services = () => {
   return (
-    <section id="services" className="py-5 bg-light">
+    <section id="services" className="py-5">
       <Container>
-        <h2 className="text-center mb-4">Servicios</h2>
+        <h2 className="text-center">Servicios</h2>
         <Row>
-          <Col md={4} className="mb-3">
-            <Card>
-              <Card.Body>
-                <Card.Title>Desarrollo Web</Card.Title>
-                <Card.Text>
-                  Creación de sitios web modernos y responsivos usando las últimas tecnologías.
-                </Card.Text>
-              </Card.Body>
-            </Card>
+          <Col md={4} className="text-center">
+            <FaCode size={40} color="var(--primary-color)" />
+            <h5>Desarrollo Web</h5>
+            <p>Construyo sitios web modernos y responsivos.</p>
           </Col>
-          <Col md={4} className="mb-3">
-            <Card>
-              <Card.Body>
-                <Card.Title>Diseño Móvil</Card.Title>
-                <Card.Text>
-                  Interfaces optimizadas para dispositivos móviles, garantizando la mejor experiencia de usuario.
-                </Card.Text>
-              </Card.Body>
-            </Card>
+          <Col md={4} className="text-center">
+            <FaPaintBrush size={40} color="var(--primary-color)" />
+            <h5>Diseño de Interfaces</h5>
+            <p>Interfaces intuitivas y atractivas.</p>
           </Col>
-          <Col md={4} className="mb-3">
-            <Card>
-              <Card.Body>
-                <Card.Title>Consultoría</Card.Title>
-                <Card.Text>
-                  Asesoría en tecnologías web y estrategias digitales para potenciar tu negocio.
-                </Card.Text>
-              </Card.Body>
-            </Card>
+          <Col md={4} className="text-center">
+            <FaLaptop size={40} color="var(--primary-color)" />
+            <h5>Consultoría</h5>
+            <p>Asesoramiento en estrategias digitales.</p>
           </Col>
         </Row>
       </Container>
