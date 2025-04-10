@@ -1,19 +1,21 @@
-// src/components/Navbar.jsx
 import React from 'react';
-import './Navbar.css'; // Si quieres usar estilos separados, opcional
+import { Navbar, Nav } from 'react-bootstrap';
 
-function Navbar() {
+const NavigationBar = () => {
   return (
-    <nav className="navbar">
-      <div className="logo">MiPortafolio</div>
-      <ul className="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar.Brand href="#home">Mi Portafolio</Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbar-nav" />
+      <Navbar.Collapse id="navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Link href="#about">Sobre mí</Nav.Link>
+          <Nav.Link href="#services">Servicios</Nav.Link>
+          <Nav.Link href="#projects">Proyectos</Nav.Link>
+          <Nav.Link href="#contact">Contacto</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
-}
+};
 
-export default Navbar;
+export default NavigationBar;
