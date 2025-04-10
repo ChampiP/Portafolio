@@ -1,15 +1,14 @@
-impo// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App'; // Asegúrate de importar App correctamente
-import reportWebVitals from './reportWebVitals';
+import './index.css'; // Asegúrate de tener este archivo, si no, lo puedes eliminar si no es necesario.
+import App from './App'; // Importa tu componente principal 'App'
+import reportWebVitals from './reportWebVitals'; // Medición del rendimiento, puedes dejarlo o eliminarlo si no lo necesitas.
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root') // Este es el contenedor principal donde se renderiza la aplicación
+  document.getElementById('root') // El contenedor donde se monta tu aplicación
 );
 
 // Si quieres medir el rendimiento de tu aplicación
