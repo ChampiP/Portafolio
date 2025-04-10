@@ -1,21 +1,16 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+impo// src/index.js
 import React from 'react';
-import NavigationBar from './components/Navbar';
-import AboutMe from './components/AboutMe';
-import Services from './components/Services';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App'; // Asegúrate de importar App correctamente
+import reportWebVitals from './reportWebVitals';
 
-const App = () => {
-  return (
-    <div>
-      <NavigationBar />
-      <AboutMe />
-      <Services />
-      <Projects />
-      <Contact />
-    </div>
-  );
-};
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root') // Este es el contenedor principal donde se renderiza la aplicación
+);
 
-export default App;
+// Si quieres medir el rendimiento de tu aplicación
+reportWebVitals();
