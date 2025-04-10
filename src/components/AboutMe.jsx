@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import logo from '../assets/logo.svg';
 
 const AboutMe = () => {
@@ -14,6 +14,10 @@ const AboutMe = () => {
               modernas y responsivas. Me encanta trabajar con React y Bootstrap para
               construir experiencias digitales únicas.
             </p>
+            {/* Aquí agregamos el botón para descargar el CV */}
+            <Button variant="primary" href="/cv.pdf" download className="mt-3">
+              Descargar CV
+            </Button>
           </Col>
           <Col md={6} className="text-center">
             <Image src={logo} roundedCircle fluid alt="Mi Foto" />
