@@ -1,40 +1,96 @@
 /* src/components/Navbar.css */
 .navbar {
-    background-color: var(--navbar-bg) !important;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1030;
-    animation: fadeIn 1s ease-out;
+  background-color: var(--navbar-bg) !important;
+  padding: 1rem 2rem;
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  animation: fadeIn 1s ease-out;
+  transition: background-color var(--transition-time);
+}
+
+/* Marca de la Navbar */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  color: var(--navbar-text) !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Enlaces de navegación */
+.nav-link {
+  margin-right: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: var(--navbar-text) !important;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-2px);
+}
+
+/* Efecto de subrayado en hover */
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Botón para modo oscuro/ligero */
+.mode-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--navbar-text);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.mode-toggle:hover {
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .navbar-brand {
-    font-weight: 700;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-    color: var(--navbar-text) !important;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
   .nav-link {
-    margin-right: 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    color: var(--navbar-text) !important;
+    margin-right: 15px;
   }
-  
-  .nav-link:hover {
-    color: var(--primary-color) !important;
-  }
-  
-  /* Botón para modo oscuro */
-  .mode-toggle {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: var(--navbar-text);
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 0;
-  }
-  
+}

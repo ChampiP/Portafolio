@@ -1,0 +1,35 @@
+/* src/components/AboutMe.css */
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tech-icon {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  transition: transform 0.3s ease, color 0.3s ease;
+  /* Distribución: 3 iconos por fila en pantallas grandes */
+  width: calc(33.33% - 20px);
+  text-align: center;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+  color: var(--secondary-color);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .tech-icon {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-icon {
+    width: 100%;
+  }
+}

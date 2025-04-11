@@ -1,16 +1,93 @@
 /* src/App.css */
 
-/* Contenedor principal */
-.App {
-  min-height: 100vh;
-  background-color: #fff;
+/* Variables CSS (útiles para temas claro/oscuro) */
+:root {
+  --primary-color: #00bcd4;
+  --secondary-color: #673ab7;
+  --btn-primary-bg: #00bcd4;
+  --btn-primary-hover: #0097a7;
+  --footer-bg: #222;
+  --footer-text: #ccc;
+  --text-color: #333;
+  --bg-color: #f8f9fa;
 }
 
-/* Animación de fade-in para secciones */
+[data-theme="dark"] {
+  --primary-color: #bb86fc;
+  --secondary-color: #03dac6;
+  --btn-primary-bg: #bb86fc;
+  --btn-primary-hover: #9f6ef0;
+  --footer-bg: #000;
+  --footer-text: #888;
+  --text-color: #e0e0e0;
+  --bg-color: #121212;
+}
+
+/* General */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+/* Social Buttons */
+.social-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 12px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Secciones */
+section {
+  padding: 80px 20px;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Animaciones */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -18,31 +95,7 @@
   }
 }
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: #fff;
-  text-align: center;
-  padding: 100px 0;
-  animation: fadeIn 1.2s ease-out;
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.3rem;
-}
-
-/* Estilo general para secciones */
-section {
-  padding: 80px 0;
-  animation: fadeIn 1s ease-out;
-}
-
-/* Tarjetas de proyectos */
+/* Proyectos */
 .project-card {
   background-color: #fff;
   border-radius: 10px;
@@ -57,11 +110,7 @@ section {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
-.project-card h5 {
-  margin-top: 15px;
-}
-
-/* Botones Primarios */
+/* Botón primario */
 .btn-primary {
   background-color: var(--btn-primary-bg);
   border: none;
@@ -76,32 +125,44 @@ section {
 footer {
   background-color: var(--footer-bg);
   color: var(--footer-text);
-  padding: 20px 0;
   text-align: center;
-}
-/* App.css */
-
-/* Contenedor para los iconos sociales */
-.social-buttons {
-  margin-top: 20px;
+  padding: 20px 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.social-icon {
-  margin: 0 15px;
-  color: #000000;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+/* Responsive Hero */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
 
-.social-icon:hover {
-  color: #000000; /* Cambia el color cuando se pase el ratón sobre el ícono */
-}
+  .hero p {
+    font-size: 1rem;
+  }
 
-/* Estilos adicionales para los iconos */
-.social-icon svg {
+  .social-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-icon {
+    padding: 10px;
+  }
+}
+/* Botón de cambio de tema */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
   transition: transform 0.3s ease;
 }
 
-.social-icon:hover svg {
-  transform: scale(1.1); /* Añadir un efecto de agrandar los íconos al hacer hover */
+.theme-toggle-btn:hover {
+  transform: scale(1.2);
 }
