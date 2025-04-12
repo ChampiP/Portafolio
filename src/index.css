@@ -1,4 +1,6 @@
 /* src/index.css */
+
+/* Importación de la fuente Roboto con fallback */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 /* Variables para el modo claro (predeterminado) */
@@ -14,43 +16,49 @@
   --footer-bg: #222;
   --footer-text: #ccc;
   --border-radius: 8px; /* Bordes redondeados */
-  --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para los elementos */
+  --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
   --transition-time: 0.3s; /* Transición suave para cambios */
 }
 
 /* Variables para el modo oscuro */
 [data-theme="dark"] {
   --bg-color: #181818; /* Fondo oscuro */
-  --text-color: #000000; /* Texto claro */
-  --primary-color: #bb86fc; /* Color principal violeta suave */
+  --text-color: #eaeaea; /* Texto claro para mayor contraste */
+  --primary-color: #bb86fc; /* Violeta suave */
   --secondary-color: #03dac6; /* Verde vibrante */
   --navbar-bg: rgba(18, 18, 18, 0.95); /* Fondo navbar oscuro */
   --navbar-text: #e0e0e0; /* Texto navbar claro */
-  --btn-primary-bg: #bb86fc; /* Botón principal violeta */
-  --btn-primary-hover: #9f6ef0; /* Hover del botón */
+  --btn-primary-bg: #bb86fc;
+  --btn-primary-hover: #9f6ef0;
   --footer-bg: #000;
   --footer-text: #888;
-  --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más fuerte en modo oscuro */
+  --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Reset y estilos globales */
+/* Se recomienda usar un reset minimalista para evitar transiciones globales costosas */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: all var(--transition-time) ease;
 }
 
+/* Transiciones seleccionadas, no de 'all' para evitar posibles problemas de rendimiento */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos globales para el body */
 body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
-  padding-top: 50px; /* Para no tapar contenido con el navbar */
+  padding-top: 50px; /* Compensa el navbar fijo */
   transition: background-color var(--transition-time), color var(--transition-time);
 }
 
-/* Enlaces sin subrayado */
+/* Enlaces sin subrayado y con transición en color */
 a {
   text-decoration: none;
   color: inherit;
@@ -81,8 +89,10 @@ nav {
   padding: 15px 0;
   z-index: 1000;
   box-shadow: var(--box-shadow);
+  transition: background-color var(--transition-time);
 }
 
+/* Lista de navegación centrada */
 nav ul {
   display: flex;
   justify-content: center;
@@ -94,6 +104,7 @@ nav ul li {
   font-size: 1.1rem;
 }
 
+/* Enlaces del navbar con fondo, transiciones y énfasis en hover/focus */
 nav ul li a {
   color: var(--navbar-text);
   font-weight: 500;
@@ -102,12 +113,14 @@ nav ul li a {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a:focus {
   background-color: var(--primary-color);
   color: #fff;
+  outline: none;
 }
 
-/* Botón principal */
+/* Botón principal con feedback visual en hover y focus */
 button {
   background-color: var(--btn-primary-bg);
   color: #fff;
@@ -119,17 +132,19 @@ button {
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:hover {
+button:hover,
+button:focus {
   background-color: var(--btn-primary-hover);
-  transform: scale(1.1); /* Efecto de agrandado */
+  transform: scale(1.1);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  outline: none;
 }
 
-/* Secciones */
+/* Secciones: espacio interno y separador visual */
 section {
-  padding: 80px 20px; /* Añadí un padding para separación */
+  padding: 80px 20px;
   text-align: center;
-  margin-top: 50px; /* Espaciado desde el navbar */
+  margin-top: 50px;
   transition: background-color var(--transition-time);
 }
 
@@ -156,9 +171,10 @@ footer {
   font-size: 1rem;
   margin-top: 30px;
   box-shadow: var(--box-shadow);
+  transition: background-color var(--transition-time), color var(--transition-time);
 }
 
-/* Modo oscuro: ajusta la paleta para que el cambio sea suave */
+/* Modo oscuro: Los estilos ya se heredan de las variables definidas, pero se refuerza para asegurar la consistencia */
 body[data-theme="dark"] {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -176,7 +192,8 @@ body[data-theme="dark"] button {
   background-color: var(--btn-primary-bg);
 }
 
-body[data-theme="dark"] button:hover {
+body[data-theme="dark"] button:hover,
+body[data-theme="dark"] button:focus {
   background-color: var(--btn-primary-hover);
 }
 
@@ -187,7 +204,7 @@ body[data-theme="dark"] footer {
 
 /* Animaciones de AOS */
 [data-aos="fade-up"] {
-  animation: fadeUp 1s ease-out;
+  animation: fadeUp 1s ease-out forwards;
 }
 
 @keyframes fadeUp {

@@ -1,0 +1,40 @@
+/* src/components/Contact.css */
+
+.contact-section {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .contact-section h2 {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+  }
+  
+  .contact-section .form-control {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    transition: border-color 0.3s ease;
+  }
+  
+  .contact-section .form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: none;
+  }
+  
+  .contact-section button {
+    background-color: var(--btn-primary-bg);
+    border: none;
+  }
+  
+  .contact-section button:hover {
+    background-color: var(--btn-primary-hover);
+  }
+  
+  .contact-section p {
+    font-weight: 500;
+    margin-top: 20px;
+  }
+  

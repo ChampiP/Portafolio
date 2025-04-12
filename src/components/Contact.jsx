@@ -2,25 +2,24 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
+import './Contact.css'; // Importamos los estilos personalizados
 
 const Contact = () => {
   const [status, setStatus] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Llamada a EmailJS
     emailjs
       .sendForm(
-        'service_190x1rj', // Aquí pon tu ID de servicio (service_xxx)
-        'template_7gvm3nc', // Aquí pon tu ID de plantilla (template_xxx)
+        'service_190x1rj',
+        'template_7gvm3nc',
         e.target,
-        'QByXsLtYv6YNEVptg' // Aquí pon tu clave pública de EmailJS
+        'QByXsLtYv6YNEVptg'
       )
       .then(
         (result) => {
           setStatus('Mensaje enviado correctamente');
-          e.target.reset(); // Limpiar el formulario después del envío
+          e.target.reset();
         },
         (error) => {
           setStatus('Hubo un error. Intenta nuevamente.');
@@ -29,29 +28,45 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-5 bg-light">
-      <Container>
-        <h2 className="text-center mb-4">Contacto</h2>
+    <section id="contact" className="contact-section">
+      <Container className="contact-container">
+        <h2>Contacto</h2>
         <Row className="justify-content-center">
           <Col md={6}>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className="contact-form">
               <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Nombre</Form.Label>
-                <Form.Control type="text" name="user_name" placeholder="Ingresa tu nombre" required />
+                <Form.Control
+                  type="text"
+                  name="user_name"
+                  placeholder="Ingresa tu nombre"
+                  required
+                />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" name="user_email" placeholder="Ingresa tu correo electrónico" required />
+                <Form.Control
+                  type="email"
+                  name="user_email"
+                  placeholder="Ingresa tu correo electrónico"
+                  required
+                />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicMessage">
                 <Form.Label>Mensaje</Form.Label>
-                <Form.Control as="textarea" name="message" rows={3} placeholder="Escribe tu mensaje" required />
+                <Form.Control
+                  as="textarea"
+                  name="message"
+                  rows={3}
+                  placeholder="Escribe tu mensaje"
+                  required
+                />
               </Form.Group>
               <Button variant="primary" type="submit">
                 Enviar
               </Button>
             </Form>
-            {status && <p className="mt-3 text-center">{status}</p>}
+            {status && <p className="contact-status">{status}</p>}
           </Col>
         </Row>
       </Container>

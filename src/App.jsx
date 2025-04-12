@@ -1,12 +1,14 @@
+// src/App.jsx
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AboutMe from './components/AboutMe';
+import Home from './Home';
 import AboutDetails from './components/AboutDetails';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AboutMe />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about-details" element={<AboutDetails />} />
       </Routes>
     </BrowserRouter>

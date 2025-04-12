@@ -1,35 +1,54 @@
 /* src/components/AboutMe.css */
 
+/* Contenedor de iconos tecnológicos */
 .tech-icons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 1.25rem; /* Uso de rem para escalabilidad */
 }
 
+/* Estilo individual del icono */
 .tech-icon {
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 2.5vw, 2.8rem); /* Escala fluida según viewport */
   color: var(--primary-color);
-  transition: transform 0.3s ease, color 0.3s ease;
-  /* Distribución: 3 iconos por fila en pantallas grandes */
-  width: calc(33.33% - 20px);
   text-align: center;
+  width: calc(33.33% - 1.25rem);
+  transition: transform 0.3s ease, color 0.3s ease;
+  will-change: transform, color;
 }
 
-.tech-icon:hover {
+/* Estado hover y focus para accesibilidad */
+.tech-icon:hover,
+.tech-icon:focus {
   transform: scale(1.2);
   color: var(--secondary-color);
+  outline: none; /* Remueve el contorno predeterminado, reemplazándolo con un estilo personalizado */
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 0, 123, 255), 0.3); /* Proporciona feedback visual al enfocar o hover */
 }
 
-/* Responsividad */
+/* En caso de que el icono sea interactivo (enlaces o botones) */
+.tech-icon:focus-visible {
+  outline: 2px solid var(--secondary-color);
+}
+
+/* Alternativamente, si se usa un contenedor interactivo, se puede agregar un :focus visible */
+a.tech-icon:focus {
+  outline: none;
+}
+
+/* Distribución responsiva para dispositivos medianos */
 @media (max-width: 768px) {
   .tech-icon {
-    width: calc(50% - 20px);
+    width: calc(50% - 1.25rem);
+    /* Ajuste sutil del tamaño si es necesario */
   }
 }
 
+/* Distribución para dispositivos pequeños */
 @media (max-width: 480px) {
   .tech-icon {
     width: 100%;
+    /* En móviles puede que se requiera reducir un poco la tipografía para mantener la legibilidad */
   }
 }
